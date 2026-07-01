@@ -66,7 +66,16 @@ const ProductCard = ({ product, index }) => {
           <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
         <div className="p-6 flex-grow flex flex-col">
-          <h3 className="text-lg font-bold mb-2 flex-grow">{product.title}</h3>
+          {/* CAMBIOS APLICADOS: 
+            - text-sm: Achica la letra.
+            - line-clamp-3: Permite hasta 3 líneas completas de texto antes de cortar.
+          */}
+          <h3 
+            className="text-sm font-bold mb-2 flex-grow line-clamp-3 leading-snug"
+            title={product.title}
+          >
+            {product.title}
+          </h3>
           <Button
             onClick={handleAddToCart}
             className="w-full mt-4 bg-cyan-500 text-black font-bold hover:bg-cyan-400"
@@ -96,7 +105,6 @@ const ProductsPage = () => {
         let productQuery;
 
         if (normalizedCategory && normalizedCategory !== 'todos') {
-          // Busca productos con "category" o "categories" (array)
           productQuery = query(itemCollection, where('category', '==', normalizedCategory));
         } else {
           productQuery = query(itemCollection);
@@ -105,7 +113,6 @@ const ProductsPage = () => {
         const snapshot = await getDocs(productQuery);
         let productList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
-        // En caso de tener campo "categories" (array)
         if (normalizedCategory && normalizedCategory !== 'todos') {
           productList = productList.filter(
             (p) =>
