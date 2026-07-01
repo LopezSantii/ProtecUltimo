@@ -16,6 +16,7 @@ import React from 'react';
             <title>Protec Group - Soluciones en Protección Personal</title>
             <meta name="description" content="Protec Group: Líderes en equipos de protección personal. Ofrecemos la máxima seguridad y calidad con productos de las mejores marcas para proteger a tu equipo." />
             <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="icon" href="/img/logo.png" type="image/png" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
             
             <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
